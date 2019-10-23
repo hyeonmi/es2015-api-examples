@@ -1,3 +1,38 @@
+// callback #1
+import { getAjax } from './callbackBasic';
+
+// getAjax('https://jsonplaceholder.typicode.com/users', 
+// (data) => {
+//     const html = data.map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
+//     document.getElementById('user-list').innerHTML = html;    
+// }, 
+// (error) => {
+//     console.log(error)
+// })
+
+// callback hell #2
+// getAjax('https://jsonplaceholder.typicode.com/users', 
+// (data) => {
+//     const html = []
+//     data.forEach(user => {
+//         getAjax(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`
+//         , (data) => {
+//             data.forEach(post => {
+//                 html.push(`<li><strong>${post.title}</strong><span>${post.body}</span></li>`)
+//                 document.getElementById('user-list').innerHTML = html.join('');
+//             })
+//         }
+//         , (error) => {
+//             console.log(error)
+//         })
+//     }
+//     );
+// }, 
+// (error) => {
+//     console.log(error)
+// })
+
+
 // promise
 // import { getUsers } from './promiseBasic';
 // getUsers()
