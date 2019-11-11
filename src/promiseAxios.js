@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getUsers = (url) => {
+export const getAjax = (url) => {
     return axios.get(url)
 };
 

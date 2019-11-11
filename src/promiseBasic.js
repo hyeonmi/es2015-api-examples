@@ -1,4 +1,4 @@
-export const getUsers = (url) => {
+export const getAjax = (url) => {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open("GET", url);

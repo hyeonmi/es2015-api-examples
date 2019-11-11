@@ -41,8 +41,8 @@
 
 
 // promise
-// import { getUsers } from './promiseBasic';
-// getUsers('https://jsonplaceholder.typicode.com/users')
+// import { getAjax } from './promiseBasic';
+// getAjax('https://jsonplaceholder.typicode.com/users')
 //     .then(data => {
 //         const html = data.map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
 //         document.getElementById('user-list').innerHTML = html;
@@ -50,10 +50,10 @@
 //     .catch(error => console.log(error))
 
 // await/async
-// import { getUsers } from './promiseBasic';
+// import { getAjax } from './promiseBasic';
 // const asyncBasic = async () => {
 //     try {
-//         const data = await getUsers('https://jsonplaceholder.typicode.com/users');
+//         const data = await getAjax('https://jsonplaceholder.typicode.com/users');
 //         const html = data.map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
 //         document.getElementById('user-list').innerHTML = html;    
 //     } catch (error) {
@@ -63,11 +63,10 @@
 // asyncBasic();
 
 
-// import { getUsers } from './promiseAxios';
-// getUsers('https://jsonplaceholder.typicode.com/users')
+// import { getAjax } from './promiseAxios';
+// getAjax('https://jsonplaceholder.typicode.com/users')
 //     .then(rep => {
 //         const html = rep.data.map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
 //         document.getElementById('user-list').innerHTML = html;
 //     })
 //     .catch(error => console.log(error))
-

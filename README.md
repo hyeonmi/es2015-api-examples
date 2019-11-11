@@ -85,7 +85,7 @@ getAjax('https://jsonplaceholder.typicode.com/users',
 XMLHttpRequest 모듈을 활용하여 특정 서버에 있는 데이터를 가져온 후 Promise를 반환하는 모듈을 만듭니다.
 
 ```js
-export const getUsers = (url) => {
+export const getAjax = (url) => {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open("GET", url);
@@ -100,8 +100,8 @@ export const getUsers = (url) => {
 promise 객체를 반환하는 경우 then으로 결과 값을 받을 수 있고 catch로 에러 값을 받을 수 있습니다.
 
 ```js
-import { getUsers } from './promiseBasic';
-getUsers('https://jsonplaceholder.typicode.com/users')
+import { getAjax } from './promiseBasic';
+getAjax('https://jsonplaceholder.typicode.com/users')
     .then(data => {
         const html = data.map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
         document.getElementById('user-list').innerHTML = html;
@@ -115,10 +115,10 @@ async/await는 then/catch 대신 바로 결과 값을 가져 올수 있고 try/c
 아래 코드를 넣고 실행하면 콘솔 로그에서 `regeneratorRuntime is not defined ...` 에러를 확인하게 됩니다.
 
 ```js
-import { getUsers } from './promiseBasic';
+import { getAjax } from './promiseBasic';
 const asyncBasic = async () => {
     try {
-        const data = await getUsers('https://jsonplaceholder.typicode.com/users');
+        const data = await getAjax('https://jsonplaceholder.typicode.com/users');
         const html = data.map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
         document.getElementById('user-list').innerHTML = html;    
     } catch (error) {
