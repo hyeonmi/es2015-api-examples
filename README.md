@@ -85,12 +85,12 @@ getAjax('https://jsonplaceholder.typicode.com/users',
 XMLHttpRequest 모듈을 활용하여 특정 서버에 있는 데이터를 가져온 후 Promise를 반환하는 모듈을 만듭니다.
 
 ```js
-export const getUsers = () => {
+export const getUsers = (url) => {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      xhr.open("GET", 'https://jsonplaceholder.typicode.com/users');
-      xhr.onload = () => resolve(xhr.responseText);
-      xhr.onerror = () => reject(xhr.statusText);
+      xhr.open("GET", url);
+      xhr.addEventListener('load', () => resolve(JSON.parse(xhr.responseText)));
+      xhr.addEventListener('error', () => reject(JSON.parse(xhr.statusText)));
       xhr.send();
     });
 }
@@ -101,8 +101,7 @@ promise 객체를 반환하는 경우 then으로 결과 값을 받을 수 있고
 
 ```js
 import { getUsers } from './promiseBasic';
-getUsers()
-    .then(res => JSON.parse(res))
+getUsers('https://jsonplaceholder.typicode.com/users')
     .then(data => {
         const html = data.map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
         document.getElementById('user-list').innerHTML = html;
@@ -119,8 +118,8 @@ async/await는 then/catch 대신 바로 결과 값을 가져 올수 있고 try/c
 import { getUsers } from './promiseBasic';
 const asyncBasic = async () => {
     try {
-        const res = await getUsers();
-        const html = JSON.parse(res).map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
+        const data = await getUsers('https://jsonplaceholder.typicode.com/users');
+        const html = data.map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
         document.getElementById('user-list').innerHTML = html;    
     } catch (error) {
         console.log(error);

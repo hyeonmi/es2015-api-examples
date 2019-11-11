@@ -1,9 +1,9 @@
-export const getUsers = () => {
+export const getUsers = (url) => {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      xhr.open("GET", 'https://jsonplaceholder.typicode.com/users');
-      xhr.addEventListener('load', () => resolve(xhr.responseText));
-      xhr.addEventListener('error', () => reject(xhr.statusText));
+      xhr.open("GET", url);
+      xhr.addEventListener('load', () => resolve(JSON.parse(xhr.responseText)));
+      xhr.addEventListener('error', () => reject(JSON.parse(xhr.statusText)));
       xhr.send();
     });
 }

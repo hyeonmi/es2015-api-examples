@@ -1,9 +1,16 @@
 // callback #1
-import { getAjax } from './callbackBasic';
-
+// import { getAjax } from './callbackBasic';
 // getAjax('https://jsonplaceholder.typicode.com/users', 
 // (data) => {
-//     const html = data.map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
+//     const html = data.sort((a,b)=>{
+//         if(a.name > b.name){
+//             return 1;
+//         }
+//         if(a.name < b.name){
+//             return -1;
+//         }
+//         return 0
+//     }).map(user => `<li><strong>[${user.id}]${user.name}</strong><span>${user.email}</span></li>`).join('');
 //     document.getElementById('user-list').innerHTML = html;    
 // }, 
 // (error) => {
@@ -35,8 +42,7 @@ import { getAjax } from './callbackBasic';
 
 // promise
 // import { getUsers } from './promiseBasic';
-// getUsers()
-//     .then(res => JSON.parse(res))
+// getUsers('https://jsonplaceholder.typicode.com/users')
 //     .then(data => {
 //         const html = data.map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
 //         document.getElementById('user-list').innerHTML = html;
@@ -47,8 +53,8 @@ import { getAjax } from './callbackBasic';
 // import { getUsers } from './promiseBasic';
 // const asyncBasic = async () => {
 //     try {
-//         const res = await getUsers();
-//         const html = JSON.parse(res).map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
+//         const data = await getUsers('https://jsonplaceholder.typicode.com/users');
+//         const html = data.map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
 //         document.getElementById('user-list').innerHTML = html;    
 //     } catch (error) {
 //         console.log(error);
@@ -57,9 +63,8 @@ import { getAjax } from './callbackBasic';
 // asyncBasic();
 
 
-
 // import { getUsers } from './promiseAxios';
-// getUsers()
+// getUsers('https://jsonplaceholder.typicode.com/users')
 //     .then(rep => {
 //         const html = rep.data.map(user => `<li><strong>${user.name}</strong><span>${user.email}</span></li>`).join('');
 //         document.getElementById('user-list').innerHTML = html;
